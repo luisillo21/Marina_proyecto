@@ -6,7 +6,173 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:background="#F7F7F7"
+        android:orientation="vertical"
+        android:textAlignment="center"
+        android:visibility="visible"
+        android:layout_margin="20dp">
 
+
+        <ImageView
+            android:id="@+id/imageView5"
+            android:layout_width="wrap_content"
+            android:layout_height="125dp"
+            android:layout_gravity="top"
+            android:contentDescription="@string/mensaje"
+            app:srcCompat="@drawable/fondo_3" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/mensaje"
+            android:textAlignment="center"
+            android:textColor="@android:color/holo_blue_dark"
+            android:ems="10"
+            android:paddingBottom="20dp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+
+            <TextView
+                android:layout_width="90dp"
+                android:textSize="15sp"
+                android:layout_height="wrap_content"
+                android:ems="20"
+                android:text="@string/Usuario"
+                android:textColor="@color/fondo_verde" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/etUsu"
+                android:textColor="@android:color/holo_blue_dark"
+                android:inputType="text"
+                />
+
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+
+            <TextView
+                android:layout_width="90dp"
+                android:textSize="15sp"
+                android:layout_height="wrap_content"
+                android:ems="20"
+                android:text="@string/Observacion"
+                android:textColor="@color/fondo_verde" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/etObservacion"
+                android:textColor="@android:color/holo_blue_dark"
+                android:inputType="text"
+                />
+
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+            <TextView
+                android:layout_width="90dp"
+                android:textSize="15sp"
+                android:layout_height="wrap_content"
+                android:ems="20"
+                android:text="@string/cant_asientos"
+                android:textColor="@color/fondo_verde" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/etCant_asientos"
+                android:textColor="@android:color/holo_blue_dark"
+                android:layout_marginBottom="10dp"
+                android:inputType="textPassword"
+
+                />
+
+
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+            <TextView
+                android:layout_width="90dp"
+                android:textSize="15sp"
+                android:layout_height="wrap_content"
+                android:ems="20"
+                android:text="@string/hora"
+                android:textColor="@color/fondo_verde" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/Hora"
+                android:textColor="@android:color/holo_blue_dark"
+                android:layout_marginBottom="10dp"
+                android:inputType="textPassword"
+
+                />
+
+
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            >
+
+
+            <TextView
+                android:layout_width="90dp"
+                android:textSize="15sp"
+                android:layout_height="wrap_content"
+                android:ems="20"
+                android:text="@string/reservaciones"
+                android:textColor="@color/fondo_verde" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/reservacion_id"
+                android:textColor="@android:color/holo_blue_dark"
+                android:layout_marginBottom="10dp"
+                android:inputType="textPassword"
+
+                />
+
+
+
+        </LinearLayout>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/btn_iniciar"
+            android:text="@string/ingresar"
+            android:textColor="@android:color/white"
+            android:background="@color/fondo_verde"
+
+            />
+
+    </LinearLayout>
 
 
 </LinearLayout>
