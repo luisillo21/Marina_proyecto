@@ -24,5 +24,8 @@
     <string name="agregarReserva">Crear Reservacion</string>
     <string name="conf_contra">Confirmar contraseña</string>
 
+    <string name="editarUsuario">Editar Usuario</string>
+    <string name="eliminarUsuario">Eliminar Usuario</string>
+
 
 </resources>

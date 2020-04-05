@@ -9,15 +9,26 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.widget.Button;
+import android.widget.EditText;
 
 import com.example.reservaciones.R;
 
 public class DetalleUsuarios extends AppCompatActivity {
+    EditText nombre,cedula,apellido,usuario;
+    Button btnEditar,btnEliminar;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detalle_usuarios);
+
+        nombre =(EditText) findViewById(R.id.etformNombre);
+        cedula =(EditText) findViewById(R.id.editCedula);
+        apellido = (EditText) findViewById(R.id.editApellido);
+        usuario = (EditText) findViewById(R.id.editUsuario);
+
 
     }
 
