@@ -1,12 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+
     <item
-        android:id="@+id/it_salir"
-        android:title="@string/salir"
+        android:id="@+id/it_agregarUsuario"
+        android:title="@string/agregarUsuario"
+        />
+
+    <item
+        android:id="@+id/it_AgregarReservacion"
+        android:title="@string/agregarReserva"
+        />
+
+    <item
+        android:id="@+id/it_Usuarios"
+        android:title="@string/clientes_registrados"
+        />
+
+    <item
+        android:id="@+id/it_Reservaciones"
+        android:title="@string/listReservaciones"
         />
 
     <item
         android:id="@+id/it_cerrar_sesion"
         android:title="@string/cerrar_sesion"
+        />
+
+    <item
+        android:id="@+id/it_salir"
+        android:title="@string/salir"
         />
 </menu>

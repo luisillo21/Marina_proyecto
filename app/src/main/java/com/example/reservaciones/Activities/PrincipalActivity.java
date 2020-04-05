@@ -77,6 +77,24 @@ public class PrincipalActivity extends AppCompatActivity {
                 finish();
                 return true;
 
+            case R.id.it_AgregarReservacion:
+                Intent intent4 = new Intent(PrincipalActivity.this,FormReservacion.class);
+                startActivity(intent4);
+                finish();
+                return true;
+
+            case R.id.it_agregarUsuario:
+                Intent intent5 = new Intent(PrincipalActivity.this,FormUsuarioActivity.class);
+                startActivity(intent5);
+                finish();
+                return true;
+
+            case R.id.it_Usuarios:
+                Intent intent6 = new Intent(PrincipalActivity.this,UsuariosActivity.class);
+                startActivity(intent6);
+                finish();
+                return true;
+
             default:
                 return super.onOptionsItemSelected(item);
 

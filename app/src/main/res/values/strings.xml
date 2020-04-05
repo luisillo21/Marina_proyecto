@@ -15,9 +15,14 @@
     <string name="Observacion">Observacion</string>
     <string name="cant_asientos">Cantidad de asientos</string>
     <string name="clientes_registrados">Lista de clientes registrados</string>
+    <string name="formulario_usuario">Formulario de registro</string>
     <string name="hora">Hora</string>
     <string name="reservacion">reservado</string>
     <string name="estado">Estado</string>
+    <string name="listReservaciones">Listar Reservaciones</string>
+    <string name="agregarUsuario">Agregar usuario</string>
+    <string name="agregarReserva">Crear Reservacion</string>
+    <string name="conf_contra">Confirmar contraseña</string>
 
 
 </resources>

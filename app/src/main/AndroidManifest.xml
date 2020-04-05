@@ -12,7 +12,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Activities.DetalleUsuarios"></activity>
+        <activity android:name=".Activities.FormUsuarioActivity"></activity>
+        <activity android:name=".Activities.DetalleUsuarios" />
         <activity android:name=".Activities.UsuariosActivity" />
         <activity android:name=".Activities.FormReservacion" />
         <activity android:name=".Activities.DetalleReservacion" />

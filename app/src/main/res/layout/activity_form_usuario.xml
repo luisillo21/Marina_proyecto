@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent"
+    tools:context=".Activities.FormUsuarioActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:background="#F7F7F7"
+        android:orientation="vertical"
+        android:visibility="visible"
+        android:layout_margin="20dp">
+
+        <ImageView
+            android:id="@+id/imageView5"
+            android:layout_width="wrap_content"
+            android:layout_height="125dp"
+            app:srcCompat="@drawable/fondo_3"
+            android:contentDescription="@string/mensaje"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/formulario_usuario"
+            android:textAlignment="center"
+            android:textColor="@android:color/holo_blue_dark"
+            android:ems="10"
+            android:paddingBottom="20dp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+
+            <TextView
+                android:layout_width="90dp"
+                android:textSize="15sp"
+                android:layout_height="wrap_content"
+                android:ems="20"
+                android:text="@string/Cedula"
+                android:textColor="@color/fondo_verde" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/etformCedula"
+                android:textColor="@android:color/holo_blue_dark"
+                android:inputType="text"
+                />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+
+            <TextView
+                android:layout_width="90dp"
+                android:textSize="15sp"
+                android:layout_height="wrap_content"
+                android:ems="20"
+                android:text="@string/Nombre"
+                android:textColor="@color/fondo_verde" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/etformNombre"
+                android:textColor="@android:color/holo_blue_dark"
+                android:inputType="text"
+                />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+
+            <TextView
+                android:layout_width="90dp"
+                android:textSize="15sp"
+                android:layout_height="wrap_content"
+                android:ems="20"
+                android:text="@string/Apellido"
+                android:textColor="@color/fondo_verde" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/etformApellido"
+                android:textColor="@android:color/holo_blue_dark"
+                android:inputType="text"
+                />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+
+            <TextView
+                android:id="@+id/tw_usuario"
+                android:layout_width="90dp"
+                android:textSize="15sp"
+                android:layout_height="wrap_content"
+                android:ems="20"
+                android:text="@string/Usuario"
+                android:textColor="@color/fondo_verde" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/etformUsuario"
+                android:textColor="@android:color/holo_blue_dark"
+                android:inputType="text"
+                />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+            <TextView
+                android:layout_width="90dp"
+                android:textSize="15sp"
+                android:layout_height="wrap_content"
+                android:ems="20"
+                android:text="@string/Clave"
+                android:textColor="@color/fondo_verde" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/et_form_pass"
+                android:textColor="@android:color/holo_blue_dark"
+                android:layout_marginBottom="10dp"
+                android:inputType="textPassword"
+
+                />
+
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+            <TextView
+                android:layout_width="90dp"
+                android:textSize="15sp"
+                android:layout_height="wrap_content"
+                android:ems="20"
+                android:text="@string/conf_contra"
+                android:textColor="@color/fondo_verde" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/et_pass_confirmar"
+                android:textColor="@android:color/holo_blue_dark"
+                android:layout_marginBottom="10dp"
+                android:inputType="textPassword"
+
+                />
+
+
+
+        </LinearLayout>
+
+
+        <Button
+            android:layout_marginTop="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/btn_guardar_form_usuario"
+            android:text="@string/ingresar"
+            android:textColor="@android:color/white"
+            android:background="@color/fondo_verde"
+
+            />
+
+
+
+    </LinearLayout>
+
+
+</LinearLayout>
