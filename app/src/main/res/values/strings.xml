@@ -14,8 +14,10 @@
     <string name="reservaciones">Lista de reservaciones</string>
     <string name="Observacion">Observacion</string>
     <string name="cant_asientos">Cantidad de asientos</string>
+    <string name="clientes_registrados">Lista de clientes registrados</string>
     <string name="hora">Hora</string>
     <string name="reservacion">reservado</string>
     <string name="estado">Estado</string>
+
 
 </resources>

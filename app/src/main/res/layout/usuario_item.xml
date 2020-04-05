@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+
+        <TextView
+            android:layout_marginStart="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/Cedula"
+            android:textColor="@android:color/black"
+            android:textSize="20sp"
+            android:layout_marginEnd="10dp"/>
+
+        <TextView
+            android:layout_marginStart="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/cedula_usu_item"
+
+            android:textColor="@android:color/holo_orange_dark"
+            android:textSize="20sp"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+
+        <TextView
+            android:layout_marginStart="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/Nombre"
+            android:textColor="@android:color/black"
+            android:textSize="20sp"
+            android:layout_marginEnd="10dp"/>
+
+        <TextView
+            android:layout_marginStart="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/nombre_usu_item"
+            android:textColor="@android:color/holo_orange_dark"
+            android:textSize="20sp"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+
+        <TextView
+            android:layout_marginStart="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/Apellido"
+            android:textColor="@android:color/black"
+            android:textSize="20sp"
+            android:layout_marginEnd="10dp"/>
+
+        <TextView
+            android:layout_marginStart="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/apellido_usu_item"
+            android:text=""
+            android:textColor="@android:color/black"
+            android:textSize="20sp"/>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_marginStart="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/Usuario"
+            android:textColor="@android:color/black"
+            android:textSize="20sp"
+            android:layout_marginEnd="10dp"/>
+
+
+        <TextView
+            android:layout_marginStart="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/usuario_item"
+            android:text=""
+            android:textColor="@android:color/black"
+            android:textSize="20sp"/>
+
+    </LinearLayout>
+
+</LinearLayout>
