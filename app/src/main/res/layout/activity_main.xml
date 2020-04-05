@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_gravity="center"
+    android:layout_height="match_parent"
+    android:background="@color/fondo"
+    tools:context=".Activities.MainActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:background="#F7F7F7"
+        android:orientation="vertical"
+        android:textAlignment="center"
+        android:visibility="visible"
+        android:layout_margin="20dp">
+
+        <ImageView
+            android:id="@+id/imageView5"
+            android:layout_width="wrap_content"
+            android:layout_height="125dp"
+            app:srcCompat="@drawable/fondo_3"
+            android:contentDescription="@string/mensaje"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/mensaje"
+            android:textAlignment="center"
+            android:textColor="@android:color/holo_blue_dark"
+            android:ems="10"
+            android:paddingBottom="20dp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+
+            <TextView
+                android:id="@+id/tw_usuario"
+                android:layout_width="90dp"
+                android:textSize="20sp"
+                android:layout_height="wrap_content"
+                android:ems="20"
+                android:text="@string/Usuario"
+                android:textColor="@color/fondo_verde" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/etUsu"
+                android:textColor="@android:color/holo_blue_dark"
+                android:inputType="text"
+                />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+            <TextView
+                android:layout_width="90dp"
+                android:textSize="20sp"
+                android:layout_height="wrap_content"
+                android:ems="20"
+                android:text="@string/Clave"
+                android:textColor="@color/fondo_verde" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/etPass"
+                android:textColor="@android:color/holo_blue_dark"
+                android:layout_marginBottom="10dp"
+                android:inputType="textPassword"
+
+                />
+
+
+
+        </LinearLayout>
+
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/btn_iniciar"
+            android:text="@string/ingresar"
+            android:textColor="@android:color/white"
+            android:background="@color/fondo_verde"
+
+            />
+
+        <Button
+            android:layout_marginTop="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/btn_salir"
+            android:text="@string/salir"
+            android:textColor="@android:color/white"
+            android:background="@color/fondo_rojo"/>
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/recordar"
+            android:layout_margin="10dp"
+            android:id="@+id/cbRecordar"
+            android:checked="true"
+            android:background="@color/fondo_rojo"
+            android:textColor="@android:color/white"
+            />
+
+    </LinearLayout>
+
+</LinearLayout>
