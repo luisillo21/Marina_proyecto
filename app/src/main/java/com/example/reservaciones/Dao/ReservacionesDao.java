@@ -18,7 +18,6 @@ public class ReservacionesDao {
         ReservacionesDB admin = new ReservacionesDB(context,"reservaciones",null,1);
         SQLiteDatabase db = admin.getWritableDatabase();
         ContentValues valores = new ContentValues();
-        valores.put("id_reservacion",reserv.getId_reservacion());
         valores.put("nombre",reserv.getNombre());
         valores.put("observacion",reserv.getObservacion());
         valores.put("cant_asientos",reserv.getCant_asientos());

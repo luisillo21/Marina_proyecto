@@ -14,6 +14,10 @@ import com.example.reservaciones.R;
 
 public class DetalleReservacion extends AppCompatActivity {
 
+
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

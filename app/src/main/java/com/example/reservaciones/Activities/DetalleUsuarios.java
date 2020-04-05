@@ -12,10 +12,11 @@ import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.example.reservaciones.Model.Reservacion;
 import com.example.reservaciones.R;
 
 public class DetalleUsuarios extends AppCompatActivity {
-    EditText nombre,cedula,apellido,usuario;
+    EditText nombre,cedula,apellido,usuario,pass,confPass;
     Button btnEditar,btnEliminar;
 
 
@@ -24,10 +25,27 @@ public class DetalleUsuarios extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detalle_usuarios);
 
+        Reservacion r  = new Reservacion();
+
+
         nombre =(EditText) findViewById(R.id.etformNombre);
         cedula =(EditText) findViewById(R.id.editCedula);
         apellido = (EditText) findViewById(R.id.editApellido);
         usuario = (EditText) findViewById(R.id.editUsuario);
+        pass = (EditText) findViewById(R.id.edit_form_pass);
+        confPass =  (EditText) findViewById(R.id.edit_pass_confirmar);
+
+        String var_1 = nombre.getText().toString();
+        String var_2 = cedula.getText().toString();
+        String var_3 = apellido.getText().toString();
+        String var_4 = usuario.getText().toString();
+        String var_5 = pass.getText().toString();
+        String var_6 = confPass.getText().toString();
+
+
+        if (var_5.equals(var_6)){
+
+        }
 
 
     }

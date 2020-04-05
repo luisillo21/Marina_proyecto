@@ -134,6 +134,60 @@
 
         </LinearLayout>
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+            <TextView
+                android:layout_width="90dp"
+                android:textSize="15sp"
+                android:layout_height="wrap_content"
+                android:ems="20"
+                android:text="@string/Clave"
+                android:textColor="@color/fondo_verde" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/edit_form_pass"
+                android:textColor="@android:color/holo_blue_dark"
+                android:layout_marginBottom="10dp"
+                android:inputType="textPassword"
+
+                />
+
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+            <TextView
+                android:layout_width="90dp"
+                android:textSize="15sp"
+                android:layout_height="wrap_content"
+                android:ems="20"
+                android:text="@string/conf_contra"
+                android:textColor="@color/fondo_verde" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/edit_pass_confirmar"
+                android:textColor="@android:color/holo_blue_dark"
+                android:layout_marginBottom="10dp"
+                android:inputType="textPassword"
+
+                />
+
+
+
+        </LinearLayout>
+
 
 
 
