@@ -10,10 +10,10 @@ import retrofit2.http.Query;
 
 public interface UsuarioService {
 
-    @GET("/API/Proyecto_reservaciones/usuarios.php")
+    @GET("/webservices/trunk/Proyecto_reservaciones/usuarios.php")
     Call<List<Usuario>> getUsuarios();
 
-    @GET("/API/Proyecto_reservaciones/login.php")
+    @GET("/webservices/trunk/Proyecto_reservaciones/login.php")
     Call<Usuario> getUsuario(@Query("usuario") String usuario);
 
 }

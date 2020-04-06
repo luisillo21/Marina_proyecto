@@ -64,28 +64,29 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 String usuario = etUsuario.getText().toString();
                 String clave = etPass.getText().toString();
-                if (cbRecordar.isChecked()){
-                    SharedPreferences preferences;
-                    preferences = getSharedPreferences("credenciales", Context.MODE_PRIVATE);
-                    SharedPreferences.Editor editors =preferences.edit();
-                    editors.putString("nom_usu",usuario);
-                    editors.putString("contra",clave);
-                    editors.apply();
-                    editors.commit();
-                }
+
 
 
                 ReservacionesDB admin = new ReservacionesDB(MainActivity.this,"reservaciones",null,1);
                 SQLiteDatabase db = admin.getWritableDatabase();
                 Cursor row = db.rawQuery("SELECT clave from usuario where usuario='"+usuario+"'",null);
                 if (row.moveToFirst()){
-                    if (clave.equals(row.getString(4))){
+                    if (clave.equals(row.getString(0))){
+                        if (cbRecordar.isChecked()){
+                            SharedPreferences preferences;
+                            preferences = getSharedPreferences("credenciales", Context.MODE_PRIVATE);
+                            SharedPreferences.Editor editors =preferences.edit();
+                            editors.putString("nom_usu",usuario);
+                            editors.putString("contra",clave);
+                            editors.apply();
+                            editors.commit();
+                        }
                         Intent intent = new Intent(MainActivity.this, PrincipalActivity.class );
                         startActivity(intent);
                         finish();
                     }
                 }else{
-                    GsonBuilder builder = new GsonBuilder();
+                    GsonBuilder builder = new GsonBuilder().setLenient();
                     builder.registerTypeAdapter(Usuario.class, new UsuarioDeserializer());
                     Api.retrofit = null;
                     UsuarioService  serv = Api.getAPI(builder).create(UsuarioService.class);
@@ -99,10 +100,7 @@ public class MainActivity extends AppCompatActivity {
                                 Usuario obj = response.body();
                                 if (usuario.equals(obj.getUsuario()) && clave.equals(obj.getClave())){
                                     UsuarioDao object = new UsuarioDao();
-                                    Usuario usuObj = new Usuario();
-                                    usuObj.setUsuario(usuario);
-                                    usuObj.setClave(clave);
-                                    object.guardar_usuario_admin(usuObj,MainActivity.this);
+                                    object.guardar_usuario_admin(obj,MainActivity.this);
                                     Toast.makeText(MainActivity.this,"Usuario Guardado en la base local",Toast.LENGTH_LONG).show();
                                     Intent intent = new Intent(MainActivity.this, PrincipalActivity.class );
                                     startActivity(intent);

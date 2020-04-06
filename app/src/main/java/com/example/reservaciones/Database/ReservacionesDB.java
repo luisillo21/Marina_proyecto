@@ -15,7 +15,7 @@ public class ReservacionesDB extends SQLiteOpenHelper {
         db.execSQL("CREATE TABLE rol(id_rol integer PRIMARY KEY AUTOINCREMENT NOT NULL,rol_nombre text)");
         db.execSQL("CREATE TABLE reservaciones(id_reservacion integer PRIMARY KEY AUTOINCREMENT NOT NULL,nombre text,observacion text,cant_asientos integer,hora text,reservado text DEFAULT 'NO')");
         db.execSQL("CREATE TABLE detalle_reservacion(id_detalle integer PRIMARY KEY AUTOINCREMENT NOT NULL,id_usuario integer,id_reservacion integer)");
-        db.execSQL("CREATE TABLE usuario(cedula text primary key,nombre text,apellido text,usuario text,clave text, rol_id integer,estado text DEFAULT 'A')");
+        db.execSQL("CREATE TABLE usuario(cedula text primary key ,nombre text,apellido text,usuario text,clave text, rol_id integer,estado text DEFAULT 'A')");
     }
 
     @Override

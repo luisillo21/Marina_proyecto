@@ -19,13 +19,13 @@
             android:layout_marginEnd="10dp"/>
 
         <TextView
-            android:layout_marginStart="10dp"
+            android:id="@+id/cedula_usu_item"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/cedula_usu_item"
+            android:layout_marginStart="10dp"
 
             android:textColor="@android:color/holo_orange_dark"
-            android:textSize="20sp"/>
+            android:textSize="20sp" />
 
     </LinearLayout>
 

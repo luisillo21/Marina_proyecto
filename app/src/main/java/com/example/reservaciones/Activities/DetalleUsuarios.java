@@ -23,27 +23,35 @@ public class DetalleUsuarios extends AppCompatActivity {
     EditText nombre,cedula,apellido,usuario,pass,confPass;
     Button btnEditar,btnEliminar;
     Usuario obj_usuario;
-
+    Bundle objeto;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detalle_usuarios);
-        final Bundle objeto = getIntent().getExtras();
+        objeto = getIntent().getExtras();
         Reservacion r  = new Reservacion();
 
         obj_usuario = new Usuario();
 
         if (objeto != null){
-            obj_usuario = (Usuario) objeto.getSerializable("usuarios");
-        }
+            obj_usuario = (Usuario) objeto.getSerializable("usuario");
 
+        }
+        btnEditar = (Button)findViewById(R.id.btn_editar_usuario);
+        btnEliminar =(Button)findViewById(R.id.btn_eliminar_usuario);
         nombre =(EditText) findViewById(R.id.etformNombre);
         cedula =(EditText) findViewById(R.id.editCedula);
         apellido = (EditText) findViewById(R.id.editApellido);
         usuario = (EditText) findViewById(R.id.editUsuario);
         pass = (EditText) findViewById(R.id.edit_form_pass);
         confPass =  (EditText) findViewById(R.id.edit_pass_confirmar);
+
+        nombre.setText(obj_usuario.getNombre());
+        cedula.setText(obj_usuario.getCedula());
+        apellido.setText(obj_usuario.getApellido());
+        usuario.setText(obj_usuario.getUsuario());
+        pass.setText(obj_usuario.getClave());
 
         btnEliminar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -72,6 +80,7 @@ public class DetalleUsuarios extends AppCompatActivity {
                     editObj.setCedula(obj_usuario.getCedula());
                     editObj.setNombre(var_1);
                     editObj.setCedula(var_2);
+                    editObj.setApellido(var_3);
                     editObj.setUsuario(var_4);
                     editObj.setClave(var_5);
                     objDao.update_usuario(editObj,DetalleUsuarios.this);
