@@ -51,7 +51,8 @@ public class UsuarioDao {
         valores.put("nombre",usuario.getNombre());
         valores.put("apellido",usuario.getApellido());
         valores.put("usuario",usuario.getUsuario());
-        db.update("usuario",valores,"id_personal="+usuario.getCedula(),null);
+        valores.put("clave",usuario.getClave());
+        db.update("usuario",valores,"cedula="+usuario.getCedula(),null);
         db.close();
     }
     public void Eliminar_usuario(String cedula, Context context){
@@ -59,7 +60,7 @@ public class UsuarioDao {
         SQLiteDatabase db = admin.getWritableDatabase();
         ContentValues valores = new ContentValues();
         valores.put("estado","I");
-        db.update("personal",valores,"id_personal="+cedula,null);
+        db.update("usuario",valores,"cedula="+cedula,null);
         db.close();
     }
     public ArrayList<Usuario> Listar_todo(Context context){
@@ -75,8 +76,9 @@ public class UsuarioDao {
             obj.setNombre(row.getString(1));
             obj.setApellido(row.getString(2));
             obj.setUsuario(row.getString(3));
-            obj.setRol(row.getInt(4));
-
+            obj.setClave(row.getString(4));
+            obj.setRol(row.getInt(5));
+            obj.setEstado(row.getString(6));
             lista.add(obj);
         }
         db.close();

@@ -47,7 +47,7 @@
                 android:text="@string/Cedula"
                 android:textColor="@color/fondo_verde" />
 
-            <EditText
+            <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/editCedula"

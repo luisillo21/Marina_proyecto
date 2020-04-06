@@ -6,12 +6,14 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.reservaciones.Dao.UsuarioDao;
@@ -20,10 +22,11 @@ import com.example.reservaciones.Model.Usuario;
 import com.example.reservaciones.R;
 
 public class DetalleUsuarios extends AppCompatActivity {
-    EditText nombre,cedula,apellido,usuario,pass,confPass;
+    EditText nombre,apellido,usuario,pass,confPass;
     Button btnEditar,btnEliminar;
     Usuario obj_usuario;
-    @Override
+    Bundle objeto;
+    TextView cedula;    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detalle_usuarios);
@@ -33,12 +36,12 @@ public class DetalleUsuarios extends AppCompatActivity {
 
         if (objeto != null){
             obj_usuario = (Usuario) objeto.getSerializable("usuario");
-
+            Log.e("ERROR DE SERIALIZER","SERIALIZER"+obj_usuario.getNombre());
         }
         btnEditar = (Button)findViewById(R.id.btn_editar_usuario);
         btnEliminar =(Button)findViewById(R.id.btn_eliminar_usuario);
-        nombre =(EditText) findViewById(R.id.etformNombre);
-        cedula =(EditText) findViewById(R.id.editCedula);
+        nombre =(EditText) findViewById(R.id.editNombre);
+        cedula =(TextView) findViewById(R.id.editCedula);
         apellido = (EditText) findViewById(R.id.editApellido);
         usuario = (EditText) findViewById(R.id.editUsuario);
         pass = (EditText) findViewById(R.id.edit_form_pass);
@@ -74,12 +77,12 @@ public class DetalleUsuarios extends AppCompatActivity {
                 UsuarioDao objDao = new UsuarioDao();
                 if (var_5.equals(var_6)){
                     Usuario editObj = new Usuario();
-                    editObj.setCedula(obj_usuario.getCedula());
-                    editObj.setNombre(var_1);
                     editObj.setCedula(var_2);
+                    editObj.setNombre(var_1);
                     editObj.setApellido(var_3);
                     editObj.setUsuario(var_4);
                     editObj.setClave(var_5);
+                    editObj.setEstado("A");
                     objDao.update_usuario(editObj,DetalleUsuarios.this);
                     Intent intent = new Intent(DetalleUsuarios.this,UsuariosActivity.class);
                     startActivity(intent);
