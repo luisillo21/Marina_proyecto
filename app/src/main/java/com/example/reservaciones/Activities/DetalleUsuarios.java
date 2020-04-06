@@ -30,7 +30,6 @@ public class DetalleUsuarios extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detalle_usuarios);
         final Bundle objeto = getIntent().getExtras();
-        Reservacion r  = new Reservacion();
 
         obj_usuario = new Usuario();
 

@@ -99,10 +99,7 @@ public class MainActivity extends AppCompatActivity {
                                 Usuario obj = response.body();
                                 if (usuario.equals(obj.getUsuario()) && clave.equals(obj.getClave())){
                                     UsuarioDao object = new UsuarioDao();
-                                    Usuario usuObj = new Usuario();
-                                    usuObj.setUsuario(usuario);
-                                    usuObj.setClave(clave);
-                                    object.guardar_usuario_admin(usuObj,MainActivity.this);
+                                    object.guardar_usuario_admin(obj,MainActivity.this);
                                     Toast.makeText(MainActivity.this,"Usuario Guardado en la base local",Toast.LENGTH_LONG).show();
                                     Intent intent = new Intent(MainActivity.this, PrincipalActivity.class );
                                     startActivity(intent);

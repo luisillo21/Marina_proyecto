@@ -31,6 +31,7 @@ public class FormUsuarioActivity extends AppCompatActivity {
 
         et_form_usuario = (EditText) findViewById(R.id.etformUsuario);
         et_form_nombre = (EditText) findViewById(R.id.etformNombre);
+        et_form_apellido =(EditText) findViewById(R.id.etformApellido);
         et_form_cedula = (EditText) findViewById(R.id.etformCedula);
         et_form_pass = (EditText) findViewById(R.id.et_form_pass);
         et_conf_pass = (EditText) findViewById(R.id.et_pass_confirmar);
@@ -49,14 +50,12 @@ public class FormUsuarioActivity extends AppCompatActivity {
                 String usuario = et_form_usuario.getText().toString();
 
                 if (pass.equals(conf_pass)){
-
                     UsuarioDao obj = new UsuarioDao();
                     Usuario usu = new Usuario(cedula,nombre,apellido,usuario,pass,1,"A");
                     obj.guardar_usuario_admin(usu,FormUsuarioActivity.this);
                     Intent intent = new Intent(FormUsuarioActivity.this,UsuariosActivity.class);
                     startActivity(intent);
                     finish();
-
                 }else{
                     Toast.makeText(FormUsuarioActivity.this,"Las contraseña no coincide con el campo confirmar",Toast.LENGTH_LONG).show();
                 }
