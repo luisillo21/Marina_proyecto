@@ -35,7 +35,7 @@ public class FormUsuarioActivity extends AppCompatActivity {
         et_form_cedula = (EditText) findViewById(R.id.etformCedula);
         et_form_pass = (EditText) findViewById(R.id.et_form_pass);
         et_conf_pass = (EditText) findViewById(R.id.et_pass_confirmar);
-
+        et_form_apellido = (EditText)findViewById(R.id.etformApellido);
         btn_guardar = (Button) findViewById(R.id.btn_guardar_form_usuario);
 
 

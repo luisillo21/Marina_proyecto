@@ -1,6 +1,7 @@
 package com.example.reservaciones.Adapter;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
@@ -38,14 +39,14 @@ public class UsuarioAdapter extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        View v = View.inflate(context, R.layout.reservacion_filter,null);
+        View v = View.inflate(context, R.layout.usuario_item,null);
 
         TextView cedula = (TextView)v.findViewById(R.id.cedula_usu_item);
         TextView nombre = (TextView)v.findViewById(R.id.nombre_usu_item);
         TextView apellido = (TextView) v.findViewById(R.id.apellido_usu_item);
         TextView usuario  = (TextView) v.findViewById(R.id.usuario_item);
 
-        cedula.setText(lstUsuario.get(position).getCedula());
+        cedula.setText(lstUsuario.get(position).getCedula().toString());
         nombre.setText(String.valueOf(lstUsuario.get(position).getNombre()));
         apellido.setText(lstUsuario.get(position).getApellido());
         usuario.setText(lstUsuario.get(position).getUsuario());

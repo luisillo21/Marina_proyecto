@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
@@ -34,8 +35,14 @@ public class UsuariosActivity extends AppCompatActivity {
         lista_usuarios = new ArrayList<Usuario>();
         UsuarioDao crud = new UsuarioDao();
         lista_usuarios  = crud.Listar_todo(UsuariosActivity.this);
-        adaptador = new UsuarioAdapter(UsuariosActivity.this,lista_usuarios);
+        for(int i = 0; i<lista_usuarios.size();i++){
+            Log.e("ERROR DE LISTA","LISTA USUARIO"+lista_usuarios.get(i).getCedula());
+        }
+        adaptador = new UsuarioAdapter(getApplicationContext(),lista_usuarios);
         listUsuarios.setAdapter(adaptador);
+
+        Log.e("FINAL","hasta aqui si funciona: ");
+
 
         listUsuarios.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override

@@ -4,6 +4,7 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.util.Log;
 
 import com.example.reservaciones.Database.ReservacionesDB;
 import com.example.reservaciones.Model.Usuario;
@@ -21,7 +22,7 @@ public class UsuarioDao {
         valores.put("apellido",usuario.getApellido());
         valores.put("usuario",usuario.getUsuario());
         valores.put("clave",usuario.getClave());
-        valores.put("rol",1);
+        valores.put("rol_id",1);
         db.insert("usuario",null,valores);
         db.close();
     }
@@ -64,18 +65,17 @@ public class UsuarioDao {
     public ArrayList<Usuario> Listar_todo(Context context){
         ReservacionesDB admin = new ReservacionesDB(context,"reservaciones",null,1);
         SQLiteDatabase db = admin.getWritableDatabase();
-        Cursor row = db.rawQuery("SELECT * from personal where estado = 'A'",null);
+        Cursor row = db.rawQuery("SELECT * from usuario where estado = 'A'",null);
         ArrayList<Usuario> lista = new ArrayList<Usuario>();
 
         while(row.moveToNext()){
-
 
             Usuario obj = new Usuario();
             obj.setCedula(row.getString(0));
             obj.setNombre(row.getString(1));
             obj.setApellido(row.getString(2));
             obj.setUsuario(row.getString(3));
-            obj.setRol(row.getInt(5));
+            obj.setRol(row.getInt(4));
 
             lista.add(obj);
         }
