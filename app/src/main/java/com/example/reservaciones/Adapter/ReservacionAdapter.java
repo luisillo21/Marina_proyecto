@@ -44,10 +44,10 @@ public class ReservacionAdapter extends BaseAdapter {
         TextView observacion = (TextView) v.findViewById(R.id.observacion_item);
         TextView cantidad_asitencias = (TextView) v.findViewById(R.id.cant_asientos_item);
         TextView reservacion = (TextView) v.findViewById(R.id.reservacion_item);
-        nombre.setText(String.valueOf(lstReservacion.get(position).getNombre()));
-        observacion.setText(lstReservacion.get(position).getObservacion());
-        cantidad_asitencias.setText(lstReservacion.get(position).getCant_asientos());
-        reservacion.setText(lstReservacion.get(position).getReservado());
+        nombre.setText(String.valueOf( lstReservacion.get(position).getNombre()));
+        observacion.setText(String.valueOf( lstReservacion.get(position).getObservacion()));
+        cantidad_asitencias.setText(String.valueOf(lstReservacion.get(position).getCant_asientos()));
+        reservacion.setText(String.valueOf(lstReservacion.get(position).getReservado()));
         return v;
     }
 }

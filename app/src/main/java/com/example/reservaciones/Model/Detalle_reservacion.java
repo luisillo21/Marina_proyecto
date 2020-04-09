@@ -6,6 +6,8 @@ public class Detalle_reservacion {
     public int id_reservacion;
     public int idbase;
 
+
+
     public Detalle_reservacion() {
 
     }
@@ -17,6 +19,7 @@ public class Detalle_reservacion {
     public void setIdbase(int idbase) {
         this.idbase = idbase;
     }
+
 
     public Detalle_reservacion(int id_detalle, int id_usuario, int id_reservacion) {
         this.id_detalle = id_detalle;

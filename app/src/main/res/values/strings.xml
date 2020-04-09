@@ -1,5 +1,7 @@
 <resources>
     <string name="ingresar">Ingresar</string>
+    <string name="Eliminar">Eliminar</string>
+    <string name="Actualizar">Actualizar</string>
     <string name="salir">Salir</string>
     <string name="cerrar_sesion">Cerrar sesion</string>
     <string name="app_name">Reservaciones</string>
@@ -18,11 +20,19 @@
     <string name="formulario_usuario">Formulario de registro</string>
     <string name="hora">Hora</string>
     <string name="reservacion">reservado</string>
+    <string name="listaDereservaciones">Reservaciones disponibles</string>
     <string name="estado">Estado</string>
     <string name="listReservaciones">Listar Reservaciones</string>
+    <string name="listaReservaciones">Reservaciones disponibles</string>
+    <string name="formularioReservacion">Formulario reservacion</string>
+    <string name="misrevervaciones">Mis reservaciones</string>
     <string name="agregarUsuario">Agregar usuario</string>
     <string name="agregarReserva">Crear Reservacion</string>
     <string name="conf_contra">Confirmar contraseña</string>
+    <string name="crearUsuario">Crear usuario</string>
+    <string name="reservarMesa">Reservar mesa</string>
+    <string name="verMisReservaciones">Ver reservaciones</string>
+
 
     <string name="editarUsuario">Editar Usuario</string>
     <string name="eliminarUsuario">Eliminar Usuario</string>

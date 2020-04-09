@@ -27,18 +27,27 @@ public class UsuarioDao {
         db.close();
     }
 
-    public void guardar_usuario_cliente(Usuario usuario, Context context){
+    public boolean guardar_usuario_cliente(Usuario usuario, Context context){
         ReservacionesDB admin = new ReservacionesDB(context,"reservaciones",null,1);
         SQLiteDatabase db = admin.getWritableDatabase();
         ContentValues valores = new ContentValues();
+        boolean bandera;
         valores.put("cedula",usuario.getCedula());
         valores.put("nombre",usuario.getNombre());
         valores.put("apellido",usuario.getApellido());
         valores.put("usuario",usuario.getUsuario());
         valores.put("clave",usuario.getClave());
-        valores.put("rol",2);
-        db.insert("usuario",null,valores);
+        valores.put("rol_id",2);
+        long result =  db.insert("usuario",null,valores);
+
+        if(result != 0){
+           bandera = true;
+        }else{
+            bandera = false;
+        }
         db.close();
+
+        return bandera;
     }
 
 

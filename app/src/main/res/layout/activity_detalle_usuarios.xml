@@ -6,7 +6,7 @@
     android:background="@color/fondo"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Activities.DetalleUsuarios">
+    tools:context=".Activities.Activities.ActivitiesAdmin.DetalleUsuarios">
 
     <LinearLayout
         android:layout_width="match_parent"

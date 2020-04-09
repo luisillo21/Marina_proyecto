@@ -7,7 +7,7 @@
     android:layout_gravity="center"
     android:layout_height="match_parent"
     android:background="@color/fondo"
-    tools:context=".Activities.MainActivity">
+    tools:context=".Activities.Activities.MainActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -98,6 +98,15 @@
             android:background="@color/fondo_verde"
 
             />
+
+        <Button
+            android:layout_marginTop="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/btn_crear_usuario_cliente"
+            android:text="@string/crearUsuario"
+            android:textColor="@android:color/white"
+            android:background="@color/fondo_verde"/>
 
         <Button
             android:layout_marginTop="20dp"

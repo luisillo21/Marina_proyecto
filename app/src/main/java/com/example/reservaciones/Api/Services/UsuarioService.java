@@ -19,27 +19,35 @@ import retrofit2.http.Query;
 
 public interface UsuarioService {
 
+    @GET("/webservices/trunk/Proyecto_reservaciones/usuarios.php")
+    Call<List<Usuario>> getUsuariosList();
 
-    @GET("/webservices/trunk/Proyecto_reservaciones/get_all_usuario.php")
-    Call<UsuarioSerializer> getUsuario();
-    @GET("/webservices/trunk/Proyecto_reservaciones/get_all_usuario.php")
-    Call<UsuarioSerializer> getUsuario(@Query("usuario") String usuario);
+
+
+    @GET("/API/Proyecto_reservaciones/login.php")
+    Call<Usuario> getUsuario(@Query("usuario") String usuario);
+
+    @GET("/API/Proyecto_reservaciones/get_all_usuario.php")
+    Call<UsuarioSerializer> getUsuarios();
+
+    @GET("/API/Proyecto_reservaciones/get_all_usuario.php")
+    Call<UsuarioSerializer> getUsuarioD (@Query("usuario") String usuario);
 
     @GET("/webservices/trunk/Proyecto_reservaciones/get_all_rol.php")
     Call<RolSerializer> getRol();
 
-    @GET("/webservices/trunk/Proyecto_reservaciones/get_all_reservacion.php")
+    @GET("/API/yecto_reservaciones/get_all_reservacion.php")
     Call<ReservacionSerializer> getReservacion();
 
-    @POST("/webservices/trunk/Proyecto_reservaciones/insertar_usuario.php")
+    @POST("/API/Proyecto_reservaciones/insertar_usuario.php")
     @FormUrlEncoded
     Call<SincronizacionModel> setUsuario(@Field("json") String json);
 
-    @POST("/webservices/trunk/Proyecto_reservaciones/insertar_reservaciones.php")
+    @POST("/API/Proyecto_reservaciones/insertar_reservaciones.php")
     @FormUrlEncoded
     Call<SincronizacionModel> SetReservaciones(@Field("json") String json);
 
-    @POST("/webservices/trunk/Proyecto_reservaciones/insertar_detalle.php")
+    @POST("/API/Proyecto_reservaciones/insertar_detalle.php")
     @FormUrlEncoded
     Call<SincronizacionModel> setDetalle(@Field("json") String json);
 

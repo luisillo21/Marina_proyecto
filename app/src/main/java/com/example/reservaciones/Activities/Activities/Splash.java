@@ -1,4 +1,4 @@
-package com.example.reservaciones.Activities;
+package com.example.reservaciones.Activities.Activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -7,8 +7,8 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
-import android.widget.ProgressBar;
 
+import com.example.reservaciones.Activities.Activities.ActivitiesAdmin.PrincipalActivity;
 import com.example.reservaciones.R;
 import com.felipecsl.gifimageview.library.GifImageView;
 
@@ -62,7 +62,7 @@ public class Splash extends AppCompatActivity {
             new Handler().postDelayed(new Runnable() {
                 @Override
                 public void run() {
-                    Splash.this.startActivity(new Intent(Splash.this,PrincipalActivity.class));
+                    Splash.this.startActivity(new Intent(Splash.this, PrincipalActivity.class));
                     Splash.this.finish();
                 }
             },4000);

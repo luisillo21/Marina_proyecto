@@ -5,7 +5,7 @@
     android:background="@color/rosa"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Activities.Splash">
+    tools:context=".Activities.Activities.Splash">
 
 
 

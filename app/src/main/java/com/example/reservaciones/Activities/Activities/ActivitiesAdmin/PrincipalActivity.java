@@ -1,4 +1,4 @@
-package com.example.reservaciones.Activities;
+package com.example.reservaciones.Activities.Activities.ActivitiesAdmin;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -13,6 +13,9 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
+import com.example.reservaciones.Activities.Activities.ActivitiesCliente.ReservacionDetalleActivity;
+import com.example.reservaciones.Activities.Activities.MainActivity;
+import com.example.reservaciones.Activities.Activities.UsuariosActivity;
 import com.example.reservaciones.Adapter.ReservacionAdapter;
 import com.example.reservaciones.Dao.ReservacionesDao;
 import com.example.reservaciones.Model.Reservacion;
@@ -44,7 +47,7 @@ public class PrincipalActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Reservacion obj =  lista_reserv.get(position);
-                Intent intent = new Intent(PrincipalActivity.this,DetalleReservacion.class);
+                Intent intent = new Intent(PrincipalActivity.this, DetalleReservacion.class);
                 Bundle bundle = new Bundle();
                 bundle.putSerializable("reservacion",obj);
                 intent.putExtras(bundle);
@@ -68,7 +71,7 @@ public class PrincipalActivity extends AppCompatActivity {
                 SharedPreferences preferences;
                 preferences = getSharedPreferences("credenciales",MODE_PRIVATE);
                 preferences.edit().clear().apply();
-                Intent intent3 = new Intent(PrincipalActivity.this,MainActivity.class);
+                Intent intent3 = new Intent(PrincipalActivity.this, MainActivity.class);
                 startActivity(intent3);
                 finish();
                 return true;
@@ -78,20 +81,25 @@ public class PrincipalActivity extends AppCompatActivity {
                 return true;
 
             case R.id.it_AgregarReservacion:
-                Intent intent4 = new Intent(PrincipalActivity.this,FormReservacion.class);
+                Intent intent4 = new Intent(PrincipalActivity.this, FormReservacion.class);
                 startActivity(intent4);
                 finish();
                 return true;
 
             case R.id.it_agregarUsuario:
-                Intent intent5 = new Intent(PrincipalActivity.this,FormUsuarioActivity.class);
+                Intent intent5 = new Intent(PrincipalActivity.this, FormUsuarioActivity.class);
                 startActivity(intent5);
                 finish();
                 return true;
 
             case R.id.it_Usuarios:
-                Intent intent6 = new Intent(PrincipalActivity.this,UsuariosActivity.class);
+                Intent intent6 = new Intent(PrincipalActivity.this, UsuariosActivity.class);
                 startActivity(intent6);
+                finish();
+                return true;
+            case R.id.it_Reservaciones:
+                Intent intent7 = new Intent(PrincipalActivity.this,PrincipalActivity.class);
+                startActivity(intent7);
                 finish();
                 return true;
 

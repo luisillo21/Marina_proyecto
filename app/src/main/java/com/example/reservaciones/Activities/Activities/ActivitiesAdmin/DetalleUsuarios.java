@@ -1,4 +1,4 @@
-package com.example.reservaciones.Activities;
+package com.example.reservaciones.Activities.Activities.ActivitiesAdmin;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -16,8 +16,9 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.reservaciones.Activities.Activities.MainActivity;
+import com.example.reservaciones.Activities.Activities.UsuariosActivity;
 import com.example.reservaciones.Dao.UsuarioDao;
-import com.example.reservaciones.Model.Reservacion;
 import com.example.reservaciones.Model.Usuario;
 import com.example.reservaciones.R;
 
@@ -26,7 +27,8 @@ public class DetalleUsuarios extends AppCompatActivity {
     Button btnEditar,btnEliminar;
     Usuario obj_usuario;
     Bundle objeto;
-    TextView cedula;    @Override
+    TextView cedula;
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detalle_usuarios);
@@ -58,7 +60,7 @@ public class DetalleUsuarios extends AppCompatActivity {
             public void onClick(View v) {
                 UsuarioDao obj = new UsuarioDao();
                 String var_cedula = cedula.getText().toString();
-                obj.Eliminar_usuario(var_cedula,DetalleUsuarios.this);Intent intent = new Intent(DetalleUsuarios.this,UsuariosActivity.class);
+                obj.Eliminar_usuario(var_cedula,DetalleUsuarios.this);Intent intent = new Intent(DetalleUsuarios.this, UsuariosActivity.class);
                 startActivity(intent);
                 finish();
             }
@@ -118,7 +120,7 @@ public class DetalleUsuarios extends AppCompatActivity {
                 SharedPreferences preferences;
                 preferences = getSharedPreferences("credenciales",MODE_PRIVATE);
                 preferences.edit().clear().apply();
-                Intent intent3 = new Intent(DetalleUsuarios.this,MainActivity.class);
+                Intent intent3 = new Intent(DetalleUsuarios.this, MainActivity.class);
                 startActivity(intent3);
                 finish();
                 return true;
@@ -128,13 +130,13 @@ public class DetalleUsuarios extends AppCompatActivity {
                 return true;
 
             case R.id.it_AgregarReservacion:
-                Intent intent4 = new Intent(DetalleUsuarios.this,FormReservacion.class);
+                Intent intent4 = new Intent(DetalleUsuarios.this, FormReservacion.class);
                 startActivity(intent4);
                 finish();
                 return true;
 
             case R.id.it_agregarUsuario:
-                Intent intent5 = new Intent(DetalleUsuarios.this,FormUsuarioActivity.class);
+                Intent intent5 = new Intent(DetalleUsuarios.this, FormUsuarioActivity.class);
                 startActivity(intent5);
                 finish();
                 return true;
@@ -142,6 +144,12 @@ public class DetalleUsuarios extends AppCompatActivity {
             case R.id.it_Usuarios:
                 Intent intent6 = new Intent(DetalleUsuarios.this,UsuariosActivity.class);
                 startActivity(intent6);
+                finish();
+                return true;
+
+            case R.id.it_Reservaciones:
+                Intent intent7 = new Intent(DetalleUsuarios.this,PrincipalActivity.class);
+                startActivity(intent7);
                 finish();
                 return true;
 

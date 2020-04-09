@@ -1,4 +1,4 @@
-package com.example.reservaciones.Activities;
+package com.example.reservaciones.Activities.Activities.ActivitiesAdmin;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -12,10 +12,10 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.reservaciones.Dao.ReservacionesDao;
+import com.example.reservaciones.Activities.Activities.MainActivity;
+import com.example.reservaciones.Activities.Activities.UsuariosActivity;
 import com.example.reservaciones.Dao.UsuarioDao;
 import com.example.reservaciones.Model.Usuario;
 import com.example.reservaciones.R;
@@ -53,7 +53,7 @@ public class FormUsuarioActivity extends AppCompatActivity {
                     UsuarioDao obj = new UsuarioDao();
                     Usuario usu = new Usuario(cedula,nombre,apellido,usuario,pass,1,"A");
                     obj.guardar_usuario_admin(usu,FormUsuarioActivity.this);
-                    Intent intent = new Intent(FormUsuarioActivity.this,UsuariosActivity.class);
+                    Intent intent = new Intent(FormUsuarioActivity.this, UsuariosActivity.class);
                     startActivity(intent);
                     finish();
                 }else{
@@ -82,7 +82,7 @@ public class FormUsuarioActivity extends AppCompatActivity {
                 SharedPreferences preferences;
                 preferences = getSharedPreferences("credenciales",MODE_PRIVATE);
                 preferences.edit().clear().apply();
-                Intent intent3 = new Intent(FormUsuarioActivity.this,MainActivity.class);
+                Intent intent3 = new Intent(FormUsuarioActivity.this, MainActivity.class);
                 startActivity(intent3);
                 finish();
                 return true;
@@ -92,7 +92,7 @@ public class FormUsuarioActivity extends AppCompatActivity {
                 return true;
 
             case R.id.it_AgregarReservacion:
-                Intent intent4 = new Intent(FormUsuarioActivity.this,FormReservacion.class);
+                Intent intent4 = new Intent(FormUsuarioActivity.this, FormReservacion.class);
                 startActivity(intent4);
                 finish();
                 return true;
@@ -106,6 +106,12 @@ public class FormUsuarioActivity extends AppCompatActivity {
             case R.id.it_Usuarios:
                 Intent intent6 = new Intent(FormUsuarioActivity.this,UsuariosActivity.class);
                 startActivity(intent6);
+                finish();
+                return true;
+
+            case R.id.it_Reservaciones:
+                Intent intent7 = new Intent(FormUsuarioActivity.this,PrincipalActivity.class);
+                startActivity(intent7);
                 finish();
                 return true;
 
