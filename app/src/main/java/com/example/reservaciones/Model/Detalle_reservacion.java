@@ -4,6 +4,19 @@ public class Detalle_reservacion {
     public int id_detalle;
     public int id_usuario;
     public int id_reservacion;
+    public int idbase;
+
+    public Detalle_reservacion() {
+
+    }
+
+    public int getIdbase() {
+        return idbase;
+    }
+
+    public void setIdbase(int idbase) {
+        this.idbase = idbase;
+    }
 
     public Detalle_reservacion(int id_detalle, int id_usuario, int id_reservacion) {
         this.id_detalle = id_detalle;

@@ -11,8 +11,15 @@ public class Reservacion implements Serializable {
     private String hora;
     private String reservado;
     private String estado;
+    private int idbase;
 
+    public int getIdbase() {
+        return idbase;
+    }
 
+    public void setIdbase(int idbase) {
+        this.idbase = idbase;
+    }
 
     public Reservacion() {
     }

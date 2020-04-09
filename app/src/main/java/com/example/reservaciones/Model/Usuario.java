@@ -10,7 +10,15 @@ public class Usuario implements Serializable {
     private String clave;
     private int rol;
     private String estado;
+    private String idbase;
 
+    public String getIdbase() {
+        return idbase;
+    }
+
+    public void setIdbase(String idbase) {
+        this.idbase = idbase;
+    }
 
     public String getEstado() {
         return estado;

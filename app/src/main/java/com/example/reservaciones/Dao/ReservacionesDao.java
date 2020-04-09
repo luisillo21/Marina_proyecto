@@ -38,7 +38,14 @@ public class ReservacionesDao {
         db.close();
     }
 
-
+    public void update_idbase(int id,int idbase ,Context context){
+        ReservacionesDB admin = new ReservacionesDB(context,"reservaciones",null,1);
+        SQLiteDatabase db = admin.getWritableDatabase();
+        ContentValues valores = new ContentValues();
+        valores.put("id_base",idbase);
+        db.update("reservaciones",valores,"id_reservacion="+id,null);
+        db.close();
+    }
 
 
 

@@ -55,6 +55,14 @@ public class UsuarioDao {
         db.update("usuario",valores,"cedula="+usuario.getCedula(),null);
         db.close();
     }
+    public void update_idbase(String id, String idbase,Context context){
+        ReservacionesDB admin = new ReservacionesDB(context,"reservaciones",null,1);
+        SQLiteDatabase db = admin.getWritableDatabase();
+        ContentValues valores = new ContentValues();
+        valores.put("id_base",idbase);
+        db.update("usuario",valores,"cedula="+id,null);
+        db.close();
+    }
     public void Eliminar_usuario(String cedula, Context context){
         ReservacionesDB admin = new ReservacionesDB(context,"reservaciones",null,1);
         SQLiteDatabase db = admin.getWritableDatabase();
