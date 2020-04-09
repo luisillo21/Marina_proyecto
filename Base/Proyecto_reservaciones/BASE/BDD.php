@@ -5,7 +5,7 @@ class BDD
     private static $SERVIDOR = "localhost";
     private static $NAME_BASE = "reservaciones";
     private static $NAME_USER = "root";
-    private static $PASS = "root";
+    private static $PASS = "password";
     public $conexion;
     static public function CONECTAR()
     {
