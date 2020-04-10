@@ -1,55 +1,47 @@
-CREATE DATABASE  IF NOT EXISTS `reservaciones` /*!40100 DEFAULT CHARACTER SET latin1 */;
-USE `reservaciones`;
--- MySQL dump 10.13  Distrib 8.0.17, for Win64 (x86_64)
+-- phpMyAdmin SQL Dump
+-- version 4.8.5
+-- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1    Database: reservaciones
--- ------------------------------------------------------
--- Server version	5.7.27-log
+-- Servidor: 127.0.0.1
+-- Tiempo de generación: 10-04-2020 a las 20:42:17
+-- Versión del servidor: 10.1.38-MariaDB
+-- Versión de PHP: 5.6.40
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
+SET time_zone = "+00:00";
+
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!50503 SET NAMES utf8 */;
-/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
-/*!40103 SET TIME_ZONE='+00:00' */;
-/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
-/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
-/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
-/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+/*!40101 SET NAMES utf8mb4 */;
 
 --
--- Table structure for table `detalle_reservacion`
+-- Base de datos: `reservaciones`
+--
+CREATE DATABASE IF NOT EXISTS `reservaciones` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
+USE `reservaciones`;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `detalle_reservacion`
 --
 
-DROP TABLE IF EXISTS `detalle_reservacion`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `detalle_reservacion` (
-  `id_detalle` int(11) NOT NULL AUTO_INCREMENT,
-  `id_usuario` varchar(12) DEFAULT NULL,
-  `id_reservacion` int(11) DEFAULT NULL,
-  PRIMARY KEY (`id_detalle`),
-  KEY `fk_usuario_idx` (`id_usuario`),
-  CONSTRAINT `fk_usuario` FOREIGN KEY (`id_usuario`) REFERENCES `usuario` (`cedula`) ON DELETE NO ACTION ON UPDATE NO ACTION
+  `id_detalle` int(11) NOT NULL,
+  `id_usuario` int(11) NOT NULL,
+  `id_reservacion` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-/*!40101 SET character_set_client = @saved_cs_client */;
+
+-- --------------------------------------------------------
 
 --
--- Dumping data for table `detalle_reservacion`
+-- Estructura de tabla para la tabla `reservacion`
 --
 
-LOCK TABLES `detalle_reservacion` WRITE;
-/*!40000 ALTER TABLE `detalle_reservacion` DISABLE KEYS */;
-/*!40000 ALTER TABLE `detalle_reservacion` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `reservacion`
---
-
-DROP TABLE IF EXISTS `reservacion`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `reservacion` (
   `id_reservacion` int(11) NOT NULL,
   `nombre` varchar(45) DEFAULT NULL,
@@ -57,90 +49,140 @@ CREATE TABLE `reservacion` (
   `cant_asientos` int(11) DEFAULT NULL,
   `hora` varchar(45) DEFAULT NULL,
   `reservado` varchar(5) DEFAULT 'NO',
-  `estado` varchar(1) DEFAULT 'A',
-  PRIMARY KEY (`id_reservacion`)
+  `estado` varchar(1) DEFAULT 'A'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `reservacion`
+-- Volcado de datos para la tabla `reservacion`
 --
 
-LOCK TABLES `reservacion` WRITE;
-/*!40000 ALTER TABLE `reservacion` DISABLE KEYS */;
-/*!40000 ALTER TABLE `reservacion` ENABLE KEYS */;
-UNLOCK TABLES;
+INSERT INTO `reservacion` (`id_reservacion`, `nombre`, `observacion`, `cant_asientos`, `hora`, `reservado`, `estado`) VALUES
+(1, 'nelio', 'nelio', 3, 'hoy', 'NO', 'A'),
+(45, 'nelio', 'nelio', 3, 'hoy', 'NO', 'A'),
+(46, 'nueva', 'prueba', 12, '18:30', 'NO', 'A');
+
+-- --------------------------------------------------------
 
 --
--- Table structure for table `rol`
+-- Estructura de tabla para la tabla `rol`
 --
 
-DROP TABLE IF EXISTS `rol`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `rol` (
-  `idrol` int(11) NOT NULL AUTO_INCREMENT,
+  `idrol` int(11) NOT NULL,
   `rol_nombre` varchar(45) DEFAULT NULL,
-  PRIMARY KEY (`idrol`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
-/*!40101 SET character_set_client = @saved_cs_client */;
+  `estado` varchar(45) NOT NULL DEFAULT 'ACTIVO'
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `rol`
+-- Volcado de datos para la tabla `rol`
 --
 
-LOCK TABLES `rol` WRITE;
-/*!40000 ALTER TABLE `rol` DISABLE KEYS */;
-INSERT INTO `rol` VALUES (1,'admin'),(2,'cliente');
-/*!40000 ALTER TABLE `rol` ENABLE KEYS */;
-UNLOCK TABLES;
+INSERT INTO `rol` (`idrol`, `rol_nombre`, `estado`) VALUES
+(1, 'admin', 'ACTIVO'),
+(2, 'cliente', 'ACTIVO'),
+(3, 'profesor', 'ACTIVO');
+
+-- --------------------------------------------------------
 
 --
--- Table structure for table `usuario`
+-- Estructura de tabla para la tabla `usuario`
 --
 
-DROP TABLE IF EXISTS `usuario`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `usuario` (
   `cedula` varchar(12) NOT NULL,
   `nombre` varchar(45) DEFAULT NULL,
   `apellido` varchar(45) DEFAULT NULL,
   `usuario` varchar(45) DEFAULT NULL,
   `clave` varchar(45) DEFAULT NULL,
-  `estado` varchar(1) DEFAULT NULL,
+  `estado` varchar(1) DEFAULT 'A',
   `rol` int(11) DEFAULT NULL,
-  PRIMARY KEY (`cedula`),
-  KEY `fk_rol_idx` (`rol`),
-  CONSTRAINT `fk_rol` FOREIGN KEY (`rol`) REFERENCES `rol` (`idrol`) ON DELETE NO ACTION ON UPDATE NO ACTION
+  `idusuario` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `usuario`
+-- Volcado de datos para la tabla `usuario`
 --
 
-LOCK TABLES `usuario` WRITE;
-/*!40000 ALTER TABLE `usuario` DISABLE KEYS */;
-INSERT INTO `usuario` VALUES ('0945887754','Mario','Martinez','mario343','1234','A',1);
-/*!40000 ALTER TABLE `usuario` ENABLE KEYS */;
-UNLOCK TABLES;
+INSERT INTO `usuario` (`cedula`, `nombre`, `apellido`, `usuario`, `clave`, `estado`, `rol`, `idusuario`) VALUES
+('0945887754', 'Mario', 'Martinez', 'mario343', '1234', 'A', 1, 1);
 
 --
--- Dumping events for database 'reservaciones'
+-- Índices para tablas volcadas
 --
 
 --
--- Dumping routines for database 'reservaciones'
+-- Indices de la tabla `detalle_reservacion`
 --
-/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+ALTER TABLE `detalle_reservacion`
+  ADD PRIMARY KEY (`id_detalle`),
+  ADD KEY `fk_reservaciones_idx` (`id_reservacion`),
+  ADD KEY `fk_usuario_idx` (`id_usuario`);
 
-/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
-/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
-/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+--
+-- Indices de la tabla `reservacion`
+--
+ALTER TABLE `reservacion`
+  ADD PRIMARY KEY (`id_reservacion`);
+
+--
+-- Indices de la tabla `rol`
+--
+ALTER TABLE `rol`
+  ADD PRIMARY KEY (`idrol`);
+
+--
+-- Indices de la tabla `usuario`
+--
+ALTER TABLE `usuario`
+  ADD PRIMARY KEY (`idusuario`),
+  ADD KEY `fk_rol_idx` (`rol`);
+
+--
+-- AUTO_INCREMENT de las tablas volcadas
+--
+
+--
+-- AUTO_INCREMENT de la tabla `detalle_reservacion`
+--
+ALTER TABLE `detalle_reservacion`
+  MODIFY `id_detalle` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de la tabla `reservacion`
+--
+ALTER TABLE `reservacion`
+  MODIFY `id_reservacion` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
+
+--
+-- AUTO_INCREMENT de la tabla `rol`
+--
+ALTER TABLE `rol`
+  MODIFY `idrol` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT de la tabla `usuario`
+--
+ALTER TABLE `usuario`
+  MODIFY `idusuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- Restricciones para tablas volcadas
+--
+
+--
+-- Filtros para la tabla `detalle_reservacion`
+--
+ALTER TABLE `detalle_reservacion`
+  ADD CONSTRAINT `fk_reservaciones` FOREIGN KEY (`id_reservacion`) REFERENCES `reservacion` (`id_reservacion`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_usuario` FOREIGN KEY (`id_usuario`) REFERENCES `usuario` (`idusuario`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+--
+-- Filtros para la tabla `usuario`
+--
+ALTER TABLE `usuario`
+  ADD CONSTRAINT `fk_rol` FOREIGN KEY (`rol`) REFERENCES `rol` (`idrol`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+COMMIT;
+
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
-/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
-
--- Dump completed on 2020-04-05 21:26:18
