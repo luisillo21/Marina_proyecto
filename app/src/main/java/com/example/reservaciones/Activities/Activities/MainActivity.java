@@ -19,6 +19,7 @@ import com.example.reservaciones.Activities.Activities.ActivitiesCliente.FormUsu
 import com.example.reservaciones.Activities.Activities.ActivitiesCliente.MainClienteActivity;
 import com.example.reservaciones.Api.Api;
 import com.example.reservaciones.Api.Deserializers.UsuarioDeserializer;
+import com.example.reservaciones.Api.Deserializers.UsuarioLogin;
 import com.example.reservaciones.Api.Services.UsuarioService;
 import com.example.reservaciones.Dao.UsuarioDao;
 import com.example.reservaciones.Database.ReservacionesDB;
@@ -112,7 +113,7 @@ public class MainActivity extends AppCompatActivity {
                     }
                 }else{
                     GsonBuilder builder = new GsonBuilder().setLenient();
-                    builder.registerTypeAdapter(Usuario.class, new UsuarioDeserializer());
+                    builder.registerTypeAdapter(Usuario.class, new UsuarioLogin());
                     Api.retrofit = null;
                     UsuarioService  serv = Api.getAPI(builder).create(UsuarioService.class);
                     Call<Usuario> datos = serv.getUsuario(usuario);

@@ -16,7 +16,7 @@ import java.util.List;
 public class ReservacionesDao {
 
 
-    public void guardar_reservacion(Reservacion reserv, Context context){
+    public void reservar(Reservacion reserv, Context context){
         ReservacionesDB admin = new ReservacionesDB(context,"reservaciones",null,1);
         SQLiteDatabase db = admin.getWritableDatabase();
         ContentValues valores = new ContentValues();
@@ -25,7 +25,21 @@ public class ReservacionesDao {
         valores.put("cant_asientos",reserv.getCant_asientos());
         valores.put("hora",reserv.getHora());
         valores.put("reservado","SI");
-        db.update("reservaciones",valores,"id_reservacion="+reserv.getId_reservacion(),null);
+        db.update("reservacion",valores,"id_reservacion="+reserv.getId_reservacion(),null);
+        db.close();
+    }
+
+
+    public void guardar_reservacion(Reservacion reserv, Context context){
+        ReservacionesDB admin = new ReservacionesDB(context,"reservaciones",null,1);
+        SQLiteDatabase db = admin.getWritableDatabase();
+        ContentValues valores = new ContentValues();
+        valores.put("nombre",reserv.getNombre());
+        valores.put("observacion",reserv.getObservacion());
+        valores.put("cant_asientos",reserv.getCant_asientos());
+        valores.put("hora",reserv.getHora());
+        valores.put("reservado","NO");
+        db.insert("reservacion",null,valores);
         db.close();
     }
 
@@ -59,7 +73,7 @@ public class ReservacionesDao {
         SQLiteDatabase db = admin.getWritableDatabase();
         ContentValues valores = new ContentValues();
         valores.put("id_base",idbase);
-        db.update("reservaciones",valores,"id_reservacion="+id,null);
+        db.update("reservacion",valores,"id_reservacion="+id,null);
         db.close();
     }
 
@@ -75,7 +89,7 @@ public class ReservacionesDao {
         valores.put("cant_asientos",obj.getCant_asientos());
         valores.put("hora",obj.getHora());
         valores.put("reservado","NO");
-        db.update("reservaciones",valores,"id_reservacion="+obj.getId_reservacion(),null);
+        db.update("reservacion",valores,"id_reservacion="+obj.getId_reservacion(),null);
         db.close();
     }
 
@@ -86,13 +100,13 @@ public class ReservacionesDao {
         SQLiteDatabase db = admin.getWritableDatabase();
         ContentValues valores = new ContentValues();
         valores.put("estado","I");
-        db.update("reservaciones",valores,"id_reservacion="+id_reservacion,null);
+        db.update("reservacion",valores,"id_reservacion="+id_reservacion,null);
         db.close();
     }
     public ArrayList<Reservacion> Listar_reservaciones(Context context){
         ReservacionesDB admin = new ReservacionesDB(context,"reservaciones",null,1);
         SQLiteDatabase db = admin.getWritableDatabase();
-        Cursor row = db.rawQuery("SELECT * from reservaciones where estado = 'A'",null);
+        Cursor row = db.rawQuery("SELECT * from reservacion where estado = 'A'",null);
         ArrayList<Reservacion> lista_reservacion = new ArrayList<Reservacion>();
 
         while(row.moveToNext()){
@@ -103,7 +117,6 @@ public class ReservacionesDao {
             obj.setCant_asientos(row.getInt(3));
             obj.setHora(row.getString(4));
             obj.setReservado(row.getString(5));
-
             lista_reservacion.add(obj);
         }
         db.close();
@@ -114,7 +127,7 @@ public class ReservacionesDao {
     public ArrayList<Reservacion> Listar_reservaciones_disponibles(Context context){
         ReservacionesDB admin = new ReservacionesDB(context,"reservaciones",null,1);
         SQLiteDatabase db = admin.getWritableDatabase();
-        Cursor row = db.rawQuery("SELECT * from reservaciones where reservado='NO' and estado='A'",null);
+        Cursor row = db.rawQuery("SELECT * from reservacion where reservado='NO' and estado='A'",null);
         ArrayList<Reservacion> lista_reservacion = new ArrayList<Reservacion>();
 
         while(row.moveToNext()){
@@ -136,7 +149,7 @@ public class ReservacionesDao {
     public ArrayList<Reservacion> Reservaciones_usuario(int id_usu, Context context){
         ReservacionesDB admin = new ReservacionesDB(context,"reservaciones",null,1);
         SQLiteDatabase db = admin.getWritableDatabase();
-        Cursor row = db.rawQuery("SELECT * from reservaciones as  r LEFT JOIN detalle_reservacion as dr" +
+        Cursor row = db.rawQuery("SELECT * from reservacion as  r LEFT JOIN detalle_reservacion as dr" +
                 " on r.id_reservacion = dr.id_reservacion where r.estado = 'A' and dr.id_usuario="+id_usu,null);
         ArrayList<Reservacion> lista_reservacion = new ArrayList<Reservacion>();
 

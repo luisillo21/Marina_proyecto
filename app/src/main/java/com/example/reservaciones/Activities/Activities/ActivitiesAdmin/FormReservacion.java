@@ -16,6 +16,7 @@ import android.widget.Toast;
 
 import com.example.reservaciones.Activities.Activities.MainActivity;
 import com.example.reservaciones.Activities.Activities.UsuariosActivity;
+import com.example.reservaciones.Activities.Sincronizacion;
 import com.example.reservaciones.Dao.ReservacionesDao;
 import com.example.reservaciones.Model.Reservacion;
 import com.example.reservaciones.R;
@@ -114,6 +115,13 @@ public class FormReservacion extends AppCompatActivity {
                 startActivity(intent7);
                 finish();
                 return true;
+
+            case R.id.it_sincronizar:
+                Intent intent8 = new Intent(FormReservacion.this, Sincronizacion.class);
+            startActivity(intent8);
+            finish();
+            return true;
+
 
             default:
                 return super.onOptionsItemSelected(item);

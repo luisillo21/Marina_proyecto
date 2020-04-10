@@ -16,6 +16,7 @@ import android.widget.ListView;
 import com.example.reservaciones.Activities.Activities.ActivitiesCliente.ReservacionDetalleActivity;
 import com.example.reservaciones.Activities.Activities.MainActivity;
 import com.example.reservaciones.Activities.Activities.UsuariosActivity;
+import com.example.reservaciones.Activities.Sincronizacion;
 import com.example.reservaciones.Adapter.ReservacionAdapter;
 import com.example.reservaciones.Dao.ReservacionesDao;
 import com.example.reservaciones.Model.Reservacion;
@@ -102,6 +103,13 @@ public class PrincipalActivity extends AppCompatActivity {
                 startActivity(intent7);
                 finish();
                 return true;
+            case R.id.it_sincronizar:
+                Intent intent8 = new Intent(PrincipalActivity.this, Sincronizacion.class);
+                startActivity(intent8);
+                finish();
+                return true;
+
+
 
             default:
                 return super.onOptionsItemSelected(item);

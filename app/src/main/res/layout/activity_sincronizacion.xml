@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:background="@android:color/white"
     android:layout_height="match_parent"
-    tools:context="com.example.facturador.Activity.Activity.MainActivity">
+    tools:context="com.example.reservaciones.Activities.Sincronizacion">
 
 
     <LinearLayout
@@ -21,7 +21,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/btn_sincronizar"
-            android:text="Sincronizar"
+            android:text="@string/sync"
             android:textColor="@android:color/black"
             android:background="@android:color/holo_blue_dark"/>
 

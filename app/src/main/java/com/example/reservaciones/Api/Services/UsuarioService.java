@@ -19,10 +19,8 @@ import retrofit2.http.Query;
 
 public interface UsuarioService {
 
-    @GET("/webservices/trunk/Proyecto_reservaciones/usuarios.php")
+    @GET("/API/Proyecto_reservaciones/usuarios.php")
     Call<List<Usuario>> getUsuariosList();
-
-
 
     @GET("/API/Proyecto_reservaciones/login.php")
     Call<Usuario> getUsuario(@Query("usuario") String usuario);
@@ -33,10 +31,10 @@ public interface UsuarioService {
     @GET("/API/Proyecto_reservaciones/get_all_usuario.php")
     Call<UsuarioSerializer> getUsuarioD (@Query("usuario") String usuario);
 
-    @GET("/webservices/trunk/Proyecto_reservaciones/get_all_rol.php")
+    @GET("/API/Proyecto_reservaciones/get_all_rol.php")
     Call<RolSerializer> getRol();
 
-    @GET("/API/yecto_reservaciones/get_all_reservacion.php")
+    @GET("/API/Proyecto_reservaciones/get_all_reservacion.php")
     Call<ReservacionSerializer> getReservacion();
 
     @POST("/API/Proyecto_reservaciones/insertar_usuario.php")

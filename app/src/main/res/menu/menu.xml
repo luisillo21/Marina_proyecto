@@ -8,6 +8,11 @@
         />
 
     <item
+        android:id="@+id/it_sincronizar"
+        android:title="@string/sync"
+        />
+
+    <item
         android:id="@+id/it_AgregarReservacion"
         android:title="@string/agregarReserva"
         />

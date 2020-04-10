@@ -18,6 +18,7 @@ import android.widget.Toast;
 
 import com.example.reservaciones.Activities.Activities.MainActivity;
 import com.example.reservaciones.Activities.Activities.UsuariosActivity;
+import com.example.reservaciones.Activities.Sincronizacion;
 import com.example.reservaciones.Dao.ReservacionesDao;
 import com.example.reservaciones.Dao.UsuarioDao;
 import com.example.reservaciones.Model.Reservacion;
@@ -139,6 +140,12 @@ public class DetalleReservacion extends AppCompatActivity {
             case R.id.it_Reservaciones:
                 Intent intent9 = new Intent(DetalleReservacion.this, PrincipalActivity.class);
                 startActivity(intent9);
+                finish();
+                return true;
+
+            case R.id.it_sincronizar:
+                Intent intent8 = new Intent(DetalleReservacion.this, Sincronizacion.class);
+                startActivity(intent8);
                 finish();
                 return true;
 

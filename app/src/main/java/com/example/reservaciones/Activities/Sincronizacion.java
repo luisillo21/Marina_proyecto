@@ -40,7 +40,7 @@ public class Sincronizacion extends AppCompatActivity {
         sincronizar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                reservacion = new ReservacionesDB(Sincronizacion.this,"reservacion",null,1);
+                reservacion = new ReservacionesDB(Sincronizacion.this,"reservaciones",null,1);
                 db = reservacion.getReadableDatabase();
                 Cursor row = db.rawQuery("SELECT * FROM usuario where estado = 'A'",null);
                 if(row.moveToFirst())
@@ -53,6 +53,7 @@ public class Sincronizacion extends AppCompatActivity {
                         user.setUsuario(row.getString(3));
                         user.setClave(row.getString(4));
                         user.setRol(row.getInt(5));
+                        user.setEstado(row.getString(6));
                         user.setIdbase(row.getString(7));
                         GsonBuilder builder = new GsonBuilder().setLenient();
                         builder.registerTypeAdapter(SincronizacionModel.class,new SincronizacionDeserializers());
@@ -81,7 +82,7 @@ public class Sincronizacion extends AppCompatActivity {
                         });
                     }while(row.moveToNext());
                 }
-                row = db.rawQuery("select * from reservaciones",null);
+                row = db.rawQuery("select * from reservacion",null);
                 if(row.moveToFirst()){
                     do{
                         final Reservacion reserv = new Reservacion();
@@ -91,13 +92,15 @@ public class Sincronizacion extends AppCompatActivity {
                         reserv.setCant_asientos(row.getInt(3));
                         reserv.setHora(row.getString(4));
                         reserv.setReservado(row.getString(5));
-                        reserv.setIdbase(row.getInt(6));
+                        reserv.setEstado(row.getString(6));
+                        reserv.setIdbase(row.getInt(7));
                         GsonBuilder builder = new GsonBuilder().setLenient();
                         builder.registerTypeAdapter(SincronizacionModel.class,new SincronizacionDeserializers());
                         Api.retrofit = null;
                         UsuarioService serv = Api.getAPI(builder).create(UsuarioService.class);
                         Gson gson = new Gson();
                         String json = "["+gson.toJson(reserv)+"]";
+                        System.out.println(json);
                         Call<SincronizacionModel> datos = serv.SetReservaciones(json);
                         datos.enqueue(new Callback<SincronizacionModel>() {
                             @Override

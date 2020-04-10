@@ -11,6 +11,7 @@
     <string name="Cedula">Cedula</string>
     <string name="Clave">Clave</string>
     <string name="Estado">Estado</string>
+    <string name="sync">Sincronizar</string>
     <string name="mensaje">Bienvenidos</string>
     <string name="recordar">Recordar credenciales</string>
     <string name="reservaciones">Lista de reservaciones</string>

@@ -58,7 +58,7 @@ public class ReservacionDetalleActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 ReservacionesDao crud = new ReservacionesDao();
-                crud.guardar_reservacion(obj,ReservacionDetalleActivity.this);
+                crud.reservar(obj,ReservacionDetalleActivity.this);
                 Detalle_reservacion dt = new Detalle_reservacion();
                 dt.setId_usuario(usu);
                 dt.setId_reservacion(obj.getId_reservacion());
