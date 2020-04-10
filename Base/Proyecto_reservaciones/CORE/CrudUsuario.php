@@ -10,7 +10,7 @@ class CrudUsuario
         if ($id) {
             return $array = array("id" => $id);
         } else {
-            return $array = array();
+            return $array =  array("id"=>0);
         }
     }
 
@@ -19,7 +19,7 @@ class CrudUsuario
         if (BDD::ACTUALIZAR_DESDE_ARRAY("usuario", $array, "cedula=$id")) {
             return $array = array("id" => $id);
         } else {
-            return $array = array();
+            return $array =  array("id"=>0);
         }
     }
 }

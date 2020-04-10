@@ -3,7 +3,7 @@ header('Content-type: application/json');
 require 'BASE/BDD.php';
 include "CORE/Usuario.php";
 
-$id = isset($_POST['usuario'])?$_POST['usuario']:null;
+$id = isset($_GET['usuario'])?$_GET['usuario']:null;
 
 if($id){
     $id = "where usuario='$id'";
@@ -15,7 +15,7 @@ $data = BDD::QUERY("select * from usuario $id");
 foreach ($data as $v)
 {
     $usuario = new Usuario($v['cedula'],$v['nombre']
-        ,$v['apellido'],$v['usuario'],$v['clave'],$v['rol'],$v['estado']);
+        ,$v['apellido'],$v['usuario'],$v['clave'],$v['rol'],$v['estado'],$v['idusuario']);
     $array[] = $usuario;
 }
 

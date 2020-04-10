@@ -9,7 +9,7 @@ class CrudReservacion
         if ($id) {
             return $array = array("id" => $id);
         } else {
-            return $array = array();
+            return $array =  array("id"=>"");
         }
     }
 
@@ -18,7 +18,7 @@ class CrudReservacion
         if (BDD::ACTUALIZAR_DESDE_ARRAY("reservacion", $array, "id_reservacion=$id")) {
             return $array = array("id" => $id);
         } else {
-            return $array = array();
+            return $array =  array("id"=>"");
         }
     }
 }

@@ -1,5 +1,6 @@
 <?php
 include "CORE/CrudReservacion.php";
+include "BASE/BDD.php";
 $json = isset($_POST['json'])?$_POST['json']:false;
 
 if($json){

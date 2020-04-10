@@ -1,5 +1,6 @@
 <?php
 include "CORE/CrudUsuario.php";
+
 $json = isset($_POST['json'])?$_POST['json']:false;
 
 if($json){

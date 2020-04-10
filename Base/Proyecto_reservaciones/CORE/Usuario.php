@@ -10,6 +10,7 @@ class Usuario
     public $clave;
     public $rol;
     public $estado;
+    public $idusuario;
 
     /**
      * Usuario constructor.
@@ -21,7 +22,7 @@ class Usuario
      * @param $rol
      * @param $estado
      */
-    public function __construct($cedula, $nombre, $apellido, $usuario, $clave, $rol, $estado)
+    public function __construct($cedula, $nombre, $apellido, $usuario, $clave, $rol, $estado,$idusuario)
     {
         $this->cedula = $cedula;
         $this->nombre = $nombre;
@@ -30,6 +31,7 @@ class Usuario
         $this->clave = $clave;
         $this->rol = $rol;
         $this->estado = $estado;
+        $this->idusuario = $idusuario;
     }
 
     /**
