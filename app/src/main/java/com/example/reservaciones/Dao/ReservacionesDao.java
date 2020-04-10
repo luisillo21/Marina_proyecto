@@ -25,6 +25,7 @@ public class ReservacionesDao {
         valores.put("cant_asientos",reserv.getCant_asientos());
         valores.put("hora",reserv.getHora());
         valores.put("reservado","SI");
+        valores.put("id_base",reserv.getId_reservacion());
         db.update("reservacion",valores,"id_reservacion="+reserv.getId_reservacion(),null);
         db.close();
     }
@@ -74,6 +75,14 @@ public class ReservacionesDao {
         ContentValues valores = new ContentValues();
         valores.put("id_base",idbase);
         db.update("reservacion",valores,"id_reservacion="+id,null);
+        db.close();
+    }
+    public void update_idbase_detalle(int id,int idbase ,Context context){
+        ReservacionesDB admin = new ReservacionesDB(context,"reservaciones",null,1);
+        SQLiteDatabase db = admin.getWritableDatabase();
+        ContentValues valores = new ContentValues();
+        valores.put("id_base",idbase);
+        db.update("detalle_reservacion",valores,"id_detalle="+id,null);
         db.close();
     }
 

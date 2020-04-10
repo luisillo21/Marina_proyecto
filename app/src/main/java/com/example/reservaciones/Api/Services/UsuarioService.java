@@ -19,33 +19,35 @@ import retrofit2.http.Query;
 
 public interface UsuarioService {
 
-    @GET("/API/Proyecto_reservaciones/usuarios.php")
+    @GET("/webservices/trunk/Proyecto_reservaciones/usuarios.php")
     Call<List<Usuario>> getUsuariosList();
 
-    @GET("/API/Proyecto_reservaciones/login.php")
-    Call<Usuario> getUsuario(@Query("usuario") String usuario);
+    @GET("/webservices/trunk/Proyecto_reservaciones/login.php")
+    Call<Usuario> getUsuarios(@Query("usuario") String usuario);
 
-    @GET("/API/Proyecto_reservaciones/get_all_usuario.php")
-    Call<UsuarioSerializer> getUsuarios();
+    @GET("/webservices/trunk/Proyecto_reservaciones/get_all_usuario.php")
+    Call<UsuarioSerializer> getUsuario();
+    @GET("/webservices/trunk/Proyecto_reservaciones/get_all_usuario.php")
+    Call<UsuarioSerializer> obtenerUsuario(@Query("usuario") String usuario);
 
-    @GET("/API/Proyecto_reservaciones/get_all_usuario.php")
+    @GET("/webservices/trunk/Proyecto_reservaciones/get_all_usuario.php")
     Call<UsuarioSerializer> getUsuarioD (@Query("usuario") String usuario);
 
-    @GET("/API/Proyecto_reservaciones/get_all_rol.php")
+    @GET("/webservices/trunk/Proyecto_reservaciones/get_all_rol.php")
     Call<RolSerializer> getRol();
 
-    @GET("/API/Proyecto_reservaciones/get_all_reservacion.php")
+    @GET("/webservices/trunk/Proyecto_reservaciones/get_all_reservacion.php")
     Call<ReservacionSerializer> getReservacion();
 
-    @POST("/API/Proyecto_reservaciones/insertar_usuario.php")
+    @POST("/webservices/trunk/Proyecto_reservaciones/insertar_usuario.php")
     @FormUrlEncoded
     Call<SincronizacionModel> setUsuario(@Field("json") String json);
 
-    @POST("/API/Proyecto_reservaciones/insertar_reservaciones.php")
+    @POST("/webservices/trunk/Proyecto_reservaciones/insertar_reservaciones.php")
     @FormUrlEncoded
     Call<SincronizacionModel> SetReservaciones(@Field("json") String json);
 
-    @POST("/API/Proyecto_reservaciones/insertar_detalle.php")
+    @POST("/webservices/trunk/Proyecto_reservaciones/insertar_detalle.php")
     @FormUrlEncoded
     Call<SincronizacionModel> setDetalle(@Field("json") String json);
 

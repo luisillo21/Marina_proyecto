@@ -23,6 +23,7 @@ public class UsuarioDao {
         valores.put("usuario",usuario.getUsuario());
         valores.put("clave",usuario.getClave());
         valores.put("rol_id",1);
+        valores.put("id_base",usuario.getIdusuario());
         db.insert("usuario",null,valores);
         db.close();
     }

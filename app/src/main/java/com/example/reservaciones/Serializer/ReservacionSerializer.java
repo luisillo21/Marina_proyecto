@@ -11,6 +11,10 @@ public class ReservacionSerializer {
         this.reservacion = reservacion;
     }
 
+    public ReservacionSerializer() {
+
+    }
+
     public ArrayList<Reservacion> getReservacion() {
         return reservacion;
     }

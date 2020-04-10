@@ -12,15 +12,18 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Activities.FormUsuarioActivity"></activity>
-        <activity android:name=".Activities.DetalleUsuarios" />
-        <activity android:name=".Activities.UsuariosActivity" />
-        <activity android:name=".Activities.FormReservacion" />
-        <activity android:name=".Activities.DetalleReservacion" />
-        <activity android:name=".Activities.PrincipalActivity" />
+        <activity android:name=".Activities.Activities.ActivitiesAdmin.FormUsuarioActivity"></activity>
+        <activity android:name=".Activities.Activities.ActivitiesAdmin.DetalleUsuarios" />
+        <activity android:name=".Activities.Activities.UsuariosActivity" />
+        <activity android:name=".Activities.Activities.ActivitiesAdmin.FormReservacion" />
+        <activity android:name=".Activities.Activities.ActivitiesAdmin.DetalleReservacion" />
+        <activity android:name=".Activities.Activities.ActivitiesAdmin.PrincipalActivity" />
         <activity android:name=".Activities.MainActivity" />
-        <activity android:name=".Activities.Splash">
-            <intent-filter>
+        <activity android:name=".Activities.Sincronizacion" />
+        <activity android:name=".Activities.Activities.Splash">
+
+
+        <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />

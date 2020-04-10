@@ -11,6 +11,10 @@ public class RolSerializer {
         this.rol = rol;
     }
 
+    public RolSerializer() {
+
+    }
+
     public ArrayList<Rol> getRol() {
         return rol;
     }

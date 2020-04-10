@@ -61,6 +61,8 @@ public class Sincronizacion extends AppCompatActivity {
                         UsuarioService serv = Api.getAPI(builder).create(UsuarioService.class);
                         Gson gson = new Gson();
                         String json = "["+gson.toJson(user)+"]";
+                        System.out.println(json);
+
                         Call<SincronizacionModel> datos = serv.setUsuario(json);
                         datos.enqueue(new Callback<SincronizacionModel>() {
                             @Override
@@ -68,8 +70,13 @@ public class Sincronizacion extends AppCompatActivity {
                                 if (response.isSuccessful()){
                                     UsuarioDao dao = new UsuarioDao();
                                     SincronizacionModel sin = new SincronizacionModel();
-                                    dao.update_idbase(user.getCedula(),String.valueOf(sin.getId()),Sincronizacion.this);
-                                    Toast.makeText(Sincronizacion.this,"Se ha actualizado de forma correcta",Toast.LENGTH_SHORT).show();
+                                    if(sin.getId()!=0)
+                                    {
+                                        dao.update_idbase(user.getCedula(),String.valueOf(sin.getId()),Sincronizacion.this);
+                                        Toast.makeText(Sincronizacion.this,"Se ha actualizado de forma correcta",Toast.LENGTH_SHORT).show();
+                                    }else{
+                                        Toast.makeText(Sincronizacion.this,"No ha actualizado de forma correcta, Revise posible dupluicaciones",Toast.LENGTH_SHORT).show();
+                                    }
 
                                 }
                             }
@@ -78,6 +85,7 @@ public class Sincronizacion extends AppCompatActivity {
                             public void onFailure(Call<SincronizacionModel> call, Throwable t) {
                                 Toast.makeText(Sincronizacion.this,"OCURRIO UN ERROR",Toast.LENGTH_SHORT).show();
                                 t.printStackTrace();
+                                System.out.println("error em guardar data");
                             }
                         });
                     }while(row.moveToNext());
@@ -109,7 +117,11 @@ public class Sincronizacion extends AppCompatActivity {
                                 {
                                     ReservacionesDao dao = new ReservacionesDao();
                                     SincronizacionModel sin = response.body();
-                                    dao.update_idbase(reserv.getId_reservacion(),sin.getId(),Sincronizacion.this);
+                                    if(sin.getId()!=0) {
+                                        dao.update_idbase(reserv.getId_reservacion(), sin.getId(), Sincronizacion.this);
+                                    }else {
+                                        Toast.makeText(Sincronizacion.this, "No ha actualizado de forma correcta, Revise posible dupluicaciones", Toast.LENGTH_SHORT).show();
+                                    }
                                 }
                             }
 
@@ -117,6 +129,8 @@ public class Sincronizacion extends AppCompatActivity {
                             public void onFailure(Call<SincronizacionModel> call, Throwable t) {
                                 Toast.makeText(Sincronizacion.this,"OCURRIO UN ERROR",Toast.LENGTH_SHORT).show();
                                 t.printStackTrace();
+                                System.out.println("error em guardar data");
+
                             }
                         });
 
@@ -137,6 +151,8 @@ public class Sincronizacion extends AppCompatActivity {
                         UsuarioService serv = Api.getAPI(builder).create(UsuarioService.class);
                         Gson gson = new Gson();
                         String json = "["+gson.toJson(rese)+"]";
+                        System.out.println(json);
+
                         Call<SincronizacionModel> datos = serv.setDetalle(json);
                         datos.enqueue(new Callback<SincronizacionModel>() {
                             @Override
@@ -145,7 +161,11 @@ public class Sincronizacion extends AppCompatActivity {
                                 {
                                     ReservacionesDao dao = new ReservacionesDao();
                                     SincronizacionModel sin = response.body();
-                                    dao.update_idbase(rese.getId_reservacion(),sin.getId(),Sincronizacion.this);
+                                    if(sin.getId()!=0) {
+                                        dao.update_idbase_detalle(rese.getId_reservacion(), sin.getId(), Sincronizacion.this);
+                                    }else{
+                                        Toast.makeText(Sincronizacion.this,"OCURRIO UN ERROR",Toast.LENGTH_SHORT).show();
+                                    }
                                 }
                             }
 

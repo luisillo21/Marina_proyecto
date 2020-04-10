@@ -7,7 +7,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class Api {
     public static Retrofit retrofit = null;
-    public static String BASE_URL = "http://192.168.2.2";
+    public static String BASE_URL = "http://192.168.0.8:82";
     public static Retrofit getAPI(GsonBuilder builder) {
         if (retrofit == null) {
             retrofit = new Retrofit.Builder()

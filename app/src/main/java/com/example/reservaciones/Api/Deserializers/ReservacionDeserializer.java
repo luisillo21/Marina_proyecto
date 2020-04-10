@@ -1,6 +1,7 @@
 package com.example.reservaciones.Api.Deserializers;
 
 import com.example.reservaciones.Model.Reservacion;
+import com.example.reservaciones.Serializer.ReservacionSerializer;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonDeserializationContext;
 import com.google.gson.JsonDeserializer;
@@ -15,7 +16,8 @@ public class ReservacionDeserializer implements JsonDeserializer {
     @Override
     public Object deserialize(JsonElement json, Type typeOfT, JsonDeserializationContext context) throws JsonParseException {
         JsonArray objeto = json.getAsJsonObject().get("reservacion").getAsJsonArray();
-        List<Reservacion> lista = new ArrayList<>();
+        ArrayList<Reservacion> lista = new ArrayList<>();
+        ReservacionSerializer serializer = new ReservacionSerializer();
         for (int i = 0;i<objeto.size();i++){
             Reservacion reservacion = new Reservacion();
             reservacion.setId_reservacion(objeto.get(i).getAsJsonObject().get("id_reservacion").getAsInt());
@@ -27,6 +29,7 @@ public class ReservacionDeserializer implements JsonDeserializer {
             reservacion.setEstado(objeto.get(i).getAsJsonObject().get("estado").getAsString());
             lista.add(reservacion);
         }
-        return lista;
+        serializer.setReservacion(lista);
+        return serializer;
     }
 }

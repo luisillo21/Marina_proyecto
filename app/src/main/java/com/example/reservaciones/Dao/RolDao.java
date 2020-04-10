@@ -12,7 +12,7 @@ public class RolDao {
     private SQLiteDatabase db;
 
     public RolDao(Context context) {
-        this.admin = new ReservacionesDB(context,"reservacion",null,1);
+        this.admin = new ReservacionesDB(context,"reservaciones",null,1);
         this.db = this.admin.getReadableDatabase();
     }
     public void Guardar_Rol(Rol rol){

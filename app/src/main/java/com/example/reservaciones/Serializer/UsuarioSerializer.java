@@ -11,6 +11,10 @@ public class UsuarioSerializer {
         this.user = user;
     }
 
+    public UsuarioSerializer() {
+
+    }
+
     public ArrayList<Usuario> getUser() {
         return user;
     }

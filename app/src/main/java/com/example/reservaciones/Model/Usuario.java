@@ -3,6 +3,7 @@ package com.example.reservaciones.Model;
 import java.io.Serializable;
 
 public class Usuario implements Serializable {
+    private int idusuario;
     private String cedula;
     private String nombre;
     private String apellido;
@@ -14,6 +15,14 @@ public class Usuario implements Serializable {
 
     public String getIdbase() {
         return idbase;
+    }
+
+    public int getIdusuario() {
+        return idusuario;
+    }
+
+    public void setIdusuario(int idusuario) {
+        this.idusuario = idusuario;
     }
 
     public void setIdbase(String idbase) {

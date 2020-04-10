@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.os.Handler;
 
 import com.example.reservaciones.Activities.Activities.ActivitiesAdmin.PrincipalActivity;
+import com.example.reservaciones.Activities.MainActivity;
 import com.example.reservaciones.R;
 import com.felipecsl.gifimageview.library.GifImageView;
 
@@ -51,7 +52,7 @@ public class Splash extends AppCompatActivity {
             new Handler().postDelayed(new Runnable() {
                 @Override
                 public void run() {
-                    Splash.this.startActivity(new Intent(Splash.this,MainActivity.class));
+                    Splash.this.startActivity(new Intent(Splash.this, MainActivity.class));
                     Splash.this.finish();
                 }
             },4000);

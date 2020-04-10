@@ -15,6 +15,7 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.reservaciones.Activities.Activities.ActivitiesAdmin.PrincipalActivity;
 import com.example.reservaciones.Api.Api;
 import com.example.reservaciones.Api.Deserializers.RaoDeserializers;
 import com.example.reservaciones.Api.Deserializers.ReservacionDeserializer;
@@ -109,10 +110,14 @@ public class MainActivity extends AppCompatActivity {
         builder.registerTypeAdapter(UsuarioSerializer.class,new UsuarioDeserializer());
         Api.retrofit = null;
         UsuarioService serv = Api.getAPI(builder).create(UsuarioService.class);
-        Call<UsuarioSerializer> datos = serv.getUsuario(etUsuario.getText().toString());
+        Call<UsuarioSerializer> datos = serv.obtenerUsuario(etUsuario.getText().toString());
+        Log.e("error","este es la url "+etUsuario.getText().toString());
+
         datos.enqueue(new Callback<UsuarioSerializer>() {
             @Override
             public void onResponse(Call<UsuarioSerializer> call, Response<UsuarioSerializer> response) {
+                Log.e("error","este es la url"+response.raw().request().url());
+
                 if(response.isSuccessful()) {
                     builder.registerTypeAdapter(RolSerializer.class, new RaoDeserializers());
                     Api.retrofit = null;
@@ -121,12 +126,14 @@ public class MainActivity extends AppCompatActivity {
                     data.enqueue(new Callback<RolSerializer>() {
                         @Override
                         public void onResponse(Call<RolSerializer> call, Response<RolSerializer> response) {
+
                             if(response.isSuccessful()){
                                 RolSerializer rol = response.body();
                                 for (int i = 0; i < rol.getRol().size(); i++) {
                                     Log.e("ERROR DE ROLES","LO QUE TE ESTA TRAYENDO ES: "+response.body().getRol().get(i).getRol_nombre().toString());
                                     RolDao roldao = new RolDao(MainActivity.this);
                                     roldao.Guardar_Rol(rol.getRol().get(i));
+                                    Log.e("error","GUARDADO CHE RESERVACION");
                                 }
                             }
                         }
@@ -145,11 +152,16 @@ public class MainActivity extends AppCompatActivity {
                     datitos.enqueue(new Callback<ReservacionSerializer>() {
                         @Override
                         public void onResponse(Call<ReservacionSerializer> call, Response<ReservacionSerializer> response) {
+                            Log.e("error","este es la url"+response.raw().request().url());
+
                             if (response.isSuccessful()) {
                                 ReservacionSerializer reservacion = response.body();
+
                                 for(int i = 0;i<reservacion.getReservacion().size();i++){
                                     ReservacionesDao dao = new ReservacionesDao();
                                     dao.guardar_reservacion(reservacion.getReservacion().get(i),MainActivity.this);
+                                    Log.e("error","GUARDADO CHE RESERVACION");
+
                                 }
                             }
                         }
@@ -168,10 +180,12 @@ public class MainActivity extends AppCompatActivity {
                     cal.enqueue(new Callback<UsuarioSerializer>() {
                         @Override
                         public void onResponse(Call<UsuarioSerializer> call, Response<UsuarioSerializer> response) {
+                            Log.e("error","este es la url"+response.raw().request().url());
                             if (response.isSuccessful()){
                                 UsuarioSerializer user = response.body();
-                                for(int i = 0;i<user.getUser().size();i++){
+                                for(int i = 0;i<user.getUser().size();i++) {
                                     UsuarioDao dao = new UsuarioDao();
+                                    Log.e("error", "GUARDADO CHE");
                                     dao.guardar_usuario_admin(user.getUser().get(i),MainActivity.this);
                                 }
                             }
@@ -204,7 +218,7 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<UsuarioSerializer> call, Throwable t) {
-                Toast.makeText(MainActivity.this,"Usuario no registrado en el sistema",Toast.LENGTH_LONG).show();
+                Toast.makeText(MainActivity.this,"Usuario no registrado en el sistema"+t.getMessage(),Toast.LENGTH_LONG).show();
                 t.printStackTrace();
             }
         });

@@ -116,7 +116,7 @@ public class MainActivity extends AppCompatActivity {
                     builder.registerTypeAdapter(Usuario.class, new UsuarioLogin());
                     Api.retrofit = null;
                     UsuarioService  serv = Api.getAPI(builder).create(UsuarioService.class);
-                    Call<Usuario> datos = serv.getUsuario(usuario);
+                    Call<Usuario> datos = serv.getUsuarios(usuario);
                     datos.enqueue(new Callback<Usuario>() {
                         @Override
                         public void onResponse(Call<Usuario> call, Response<Usuario> response) {
